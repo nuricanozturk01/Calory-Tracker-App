@@ -22,7 +22,7 @@ import nuricanozturk.dev.core_ui.LocalSpacing
 
 private val DarkColorScheme = darkColorScheme(
     primary = BrightGreen,
-    onSurfaceVariant = DarkGreen,
+    inversePrimary = DarkGreen,
     secondary = Orange,
     background = MediumGray,
     onBackground = TextWhite,
@@ -34,7 +34,7 @@ private val DarkColorScheme = darkColorScheme(
 
 private val LightColorScheme = lightColorScheme(
     primary = BrightGreen,
-    onSurfaceVariant = DarkGreen,
+    inversePrimary = DarkGreen,
     secondary = Orange,
     background = Color.White,
     onBackground = DarkGray,
