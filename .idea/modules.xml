@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/CaloryTracker.core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/CaloryTracker.core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/onboarding/onboarding_domain/CaloryTracker.onboarding.onboarding_domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/onboarding/onboarding_domain/CaloryTracker.onboarding.onboarding_domain.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/onboarding/onboarding_presentation/CaloryTracker.onboarding.onboarding_presentation.main.iml" filepath="$PROJECT_DIR$/.idea/modules/onboarding/onboarding_presentation/CaloryTracker.onboarding.onboarding_presentation.main.iml" />
+    </modules>
+  </component>
+</project>

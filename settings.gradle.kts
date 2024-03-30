@@ -1,6 +1,12 @@
 pluginManagement {
     repositories {
-        google()
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
         mavenCentral()
         gradlePluginPortal()
     }
@@ -13,13 +19,15 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CaloryTracker"
+rootProject.name = "CaloryTrackerApp"
 include(":app")
+include(":appBuild")
 include(":core")
+include(":core-ui")
 include(":onboarding")
-include(":onboarding:onboarding_presentation")
-include(":onboarding:onboarding_domain")
+include(":onboarding:onboarding-domain")
+include(":onboarding:onboarding-presentation")
 include(":tracker")
-include(":tracker:tracker_data")
-include(":tracker:tracker_domain")
-include(":tracker:tracker_presentation")
+include(":tracker:tracker-data")
+include(":tracker:tracker-domain")
+include(":tracker:tracker-presentation")
