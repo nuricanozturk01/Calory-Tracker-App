@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import nuricanozturk.dev.core.domain.preferences.IPreferences
 import nuricanozturk.dev.core.navigation.Route
 import nuricanozturk.dev.core.util.UiEvent
-import nuricanozturk.dev.tracker_data.use_case.TrackerUseCases
+import nuricanozturk.dev.tracker_domain.use_case.TrackerUseCases
 import javax.inject.Inject
 
 @HiltViewModel

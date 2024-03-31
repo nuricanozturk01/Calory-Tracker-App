@@ -46,7 +46,7 @@ android {
 dependencies {
     implementation(project(path = ":core"))
     implementation(project(":core-ui"))
-    implementation(project(":tracker:tracker-data"))
+    implementation(project(":tracker:tracker-domain"))
     coreLibraryDesugaring(libs.desugar.jdk.libs)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
