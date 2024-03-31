@@ -1,5 +1,6 @@
 package nuricanozturk.dev.tracker_presentation.tracker_overview
 
+import nuricanozturk.dev.tracker_domain.model.TrackedFood
 import java.time.LocalDate
 
 data class TrackerOverviewState(
@@ -12,6 +13,6 @@ data class TrackerOverviewState(
     val fatGoal: Int = 0,
     val caloriesGoal: Int = 0,
     val date: LocalDate = LocalDate.now(),
-    val trackedFoods: List<Any> = emptyList(),
+    val trackedFoods: List<TrackedFood> = emptyList(),
     val meals: List<Meal> = defaultMeals
 )

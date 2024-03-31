@@ -5,7 +5,7 @@ import nuricanozturk.dev.tracker_domain.model.TrackableFood
 
 class SearchFood(private val repository: ITrackerRepository) {
 
-    suspend operator  fun invoke(
+    suspend operator fun invoke(
         query: String,
         page: Int = 1,
         pageSize: Int = 40

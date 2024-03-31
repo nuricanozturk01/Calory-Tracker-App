@@ -25,18 +25,20 @@ class TrackerViewModel @Inject constructor(
 ) : ViewModel() {
 
     var state by mutableStateOf(TrackerOverviewState())
-
-    private var getFoodForDateJob: Job? = null
+        private set
 
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
+    private var getFoodsForDateJob: Job? = null
+
     init {
+        refreshFoods()
         preferences.saveShouldShowOnboarding(false)
     }
 
     fun onEvent(event: TrackerOverviewEvent) {
-        when (event) {
+        when(event) {
             is TrackerOverviewEvent.OnAddFoodClick -> {
                 viewModelScope.launch {
                     _uiEvent.send(
@@ -50,42 +52,39 @@ class TrackerViewModel @Inject constructor(
                     )
                 }
             }
-
             is TrackerOverviewEvent.OnDeleteTrackedFoodClick -> {
                 viewModelScope.launch {
                     trackerUseCases.deleteTrackedFood(event.trackedFood)
                     refreshFoods()
                 }
-
             }
-
             is TrackerOverviewEvent.OnNextDayClick -> {
-                state = state.copy(date = state.date.plusDays(1))
+                state = state.copy(
+                    date = state.date.plusDays(1)
+                )
                 refreshFoods()
             }
-
             is TrackerOverviewEvent.OnPreviousDayClick -> {
-                state = state.copy(date = state.date.minusDays(1))
+                state = state.copy(
+                    date = state.date.minusDays(1)
+                )
                 refreshFoods()
             }
-
             is TrackerOverviewEvent.OnToggleMealClick -> {
                 state = state.copy(
                     meals = state.meals.map {
-                        if (it.name == event.meal.name) {
+                        if(it.name == event.meal.name) {
                             it.copy(isExpanded = !it.isExpanded)
                         } else it
                     }
                 )
             }
-
         }
     }
 
-
     private fun refreshFoods() {
-        getFoodForDateJob?.cancel()
-        getFoodForDateJob = trackerUseCases
+        getFoodsForDateJob?.cancel()
+        getFoodsForDateJob = trackerUseCases
             .getFoodsForDate(state.date)
             .onEach { foods ->
                 val nutrientsResult = trackerUseCases.calculateMealNutrients(foods)
