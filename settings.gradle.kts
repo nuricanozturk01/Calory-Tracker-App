@@ -21,7 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "CaloryTrackerApp"
 include(":app")
-include(":appBuild")
 include(":core")
 include(":core-ui")
 include(":onboarding")
