@@ -6,6 +6,7 @@ import nuricanozturk.dev.core.domain.model.ActivityLevel
 import nuricanozturk.dev.core.domain.model.Gender
 import nuricanozturk.dev.core.domain.model.GoalType
 import nuricanozturk.dev.core.domain.model.UserInfo
+import java.util.prefs.Preferences
 
 class DefaultPreferences(private val sharedPreferences: SharedPreferences) : IPreferences {
 
@@ -68,5 +69,14 @@ class DefaultPreferences(private val sharedPreferences: SharedPreferences) : IPr
             proteinRatio = proteinRatio,
             fatRatio = fatRatio
         )
+    }
+
+    override fun saveShouldShowOnboarding(shouldShow: Boolean) {
+        sharedPreferences.edit().putBoolean(IPreferences.KEY_SHOULD_SHOW_ONBOARDING, shouldShow)
+            .apply()
+    }
+
+    override fun loadShouldShowOnboarding(shouldShow: Boolean): Boolean {
+        return sharedPreferences.getBoolean(IPreferences.KEY_SHOULD_SHOW_ONBOARDING, true)
     }
 }

@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import nuricanozturk.dev.core.domain.model.Gender
 import nuricanozturk.dev.core.util.UiEvent
@@ -60,7 +61,7 @@ fun GenderScreen(
                     text = stringResource(id = R.string.male),
                     isSelected = viewModel.selectedGender is Gender.Male,
                     color = MaterialTheme.colorScheme.inversePrimary,
-                    selectedTextColor = Color.Black,
+                    selectedTextColor = Color.White,
                     onClick = {
                         viewModel.onGenderClick(Gender.Male)
                     },
@@ -73,7 +74,7 @@ fun GenderScreen(
                     text = stringResource(id = R.string.female),
                     isSelected = viewModel.selectedGender is Gender.Female,
                     color = MaterialTheme.colorScheme.inversePrimary,
-                    selectedTextColor = Color.Black,
+                    selectedTextColor = Color.White,
                     onClick = {
                         viewModel.onGenderClick(Gender.Female)
                     },

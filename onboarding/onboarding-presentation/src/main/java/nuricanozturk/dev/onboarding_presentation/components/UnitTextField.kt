@@ -21,7 +21,7 @@ import nuricanozturk.dev.core_ui.LocalSpacing
 fun UnitTextField(
     value: String, onValueChange: (String) -> Unit, unit: String, modifier: Modifier = Modifier,
     textStyle: TextStyle = TextStyle(
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        color = MaterialTheme.colorScheme.inversePrimary,
         fontSize = 70.sp
     )
 ) {
@@ -30,6 +30,7 @@ fun UnitTextField(
     Row(modifier = modifier, horizontalArrangement = Arrangement.Center) {
         BasicTextField(
             value = value,
+            textStyle = textStyle,
             onValueChange = onValueChange,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             singleLine = true,

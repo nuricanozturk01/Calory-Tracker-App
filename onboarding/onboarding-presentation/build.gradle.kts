@@ -48,6 +48,7 @@ dependencies {
 
     implementation(project(path = ":core"))
     implementation(project(":core-ui"))
+    implementation(project(":onboarding:onboarding-domain"))
     coreLibraryDesugaring(libs.desugar.jdk.libs)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

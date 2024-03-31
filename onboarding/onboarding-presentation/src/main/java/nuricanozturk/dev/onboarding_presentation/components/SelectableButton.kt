@@ -37,7 +37,7 @@ fun SelectableButton(
             .padding(LocalSpacing.current.spaceMedium)
     ) {
         Text(
-            text = text, style = textStyle, color = if (isSelected) color else Color.Transparent,
+            text = text, style = textStyle, color = if (isSelected) selectedTextColor else Color.Black,
             modifier = Modifier.padding(LocalSpacing.current.spaceSmall)
         )
     }
