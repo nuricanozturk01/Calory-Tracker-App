@@ -1,8 +1,9 @@
 package nuricanozturk.dev.tracker_data.mapper
 
 import nuricanozturk.dev.tracker_data.local.entity.TrackedFoodEntity
-import nuricanozturk.dev.tracker_domain.model.MealType
-import nuricanozturk.dev.tracker_domain.model.TrackedFood
+import nuricanozturk.dev.tracker_data.local.model.MealType
+import nuricanozturk.dev.tracker_data.local.model.TrackedFood
+
 import java.time.LocalDate
 
 fun TrackedFoodEntity.toTrackedFood(): TrackedFood {

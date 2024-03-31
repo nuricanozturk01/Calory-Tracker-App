@@ -15,12 +15,12 @@ import kotlinx.coroutines.launch
 import nuricanozturk.dev.core.domain.preferences.IPreferences
 import nuricanozturk.dev.core.navigation.Route
 import nuricanozturk.dev.core.util.UiEvent
-import nuricanozturk.dev.tracker_domain.use_case.TrackerUseCases
+import nuricanozturk.dev.tracker_data.use_case.TrackerUseCases
 import javax.inject.Inject
 
 @HiltViewModel
 class TrackerViewModel @Inject constructor(
-    pref: IPreferences,
+    private val preferences: IPreferences,
     private val trackerUseCases: TrackerUseCases
 ) : ViewModel() {
 
@@ -32,7 +32,7 @@ class TrackerViewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     init {
-        pref.saveShouldShowOnboarding(false)
+        preferences.saveShouldShowOnboarding(false)
     }
 
     fun onEvent(event: TrackerOverviewEvent) {
@@ -41,12 +41,14 @@ class TrackerViewModel @Inject constructor(
                 viewModelScope.launch {
                     _uiEvent.send(
                         UiEvent.Navigate(
-                            "${Route.SEARCH}/${event.meal.mealType.name}" + "" +
-                                    "/${state.date.dayOfMonth}/${state.date.monthValue}/${state.date.year}"
+                            route = Route.SEARCH
+                                    + "/${event.meal.mealType.name}"
+                                    + "/${state.date.dayOfMonth}"
+                                    + "/${state.date.monthValue}"
+                                    + "/${state.date.year}"
                         )
                     )
                 }
-
             }
 
             is TrackerOverviewEvent.OnDeleteTrackedFoodClick -> {
@@ -83,8 +85,8 @@ class TrackerViewModel @Inject constructor(
 
     private fun refreshFoods() {
         getFoodForDateJob?.cancel()
-
-        getFoodForDateJob = trackerUseCases.getFoodsForDate(state.date)
+        getFoodForDateJob = trackerUseCases
+            .getFoodsForDate(state.date)
             .onEach { foods ->
                 val nutrientsResult = trackerUseCases.calculateMealNutrients(foods)
                 state = state.copy(
@@ -114,6 +116,7 @@ class TrackerViewModel @Inject constructor(
                         )
                     }
                 )
-            }.launchIn(viewModelScope)
+            }
+            .launchIn(viewModelScope)
     }
 }

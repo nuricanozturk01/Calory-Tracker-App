@@ -6,7 +6,6 @@ import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import nuricanozturk.dev.tracker_data.local.TrackerDatabase
 import nuricanozturk.dev.tracker_data.remote.IOpenFoodApi.Companion.BASE_URL
@@ -27,9 +26,10 @@ object TrackerDataModule {
             .client(OkHttpClient.Builder().build()).build()
     }
 
+
     @Provides
     @Singleton
     fun provideTrackerDatabase(app: Application): TrackerDatabase {
-        return Room.databaseBuilder(app, TrackerDatabase::class.java, "tracker-db").build()
+        return Room.databaseBuilder(app, TrackerDatabase::class.java, "tracker_db").build()
     }
 }

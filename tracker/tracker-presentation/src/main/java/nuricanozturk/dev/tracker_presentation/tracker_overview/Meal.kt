@@ -1,9 +1,9 @@
 package nuricanozturk.dev.tracker_presentation.tracker_overview
 
 import androidx.annotation.DrawableRes
-import nuricanozturk.dev.core.util.UiText
 import nuricanozturk.dev.core.R
-import nuricanozturk.dev.tracker_domain.model.MealType
+import nuricanozturk.dev.core.util.UiText
+import nuricanozturk.dev.tracker_data.local.model.MealType
 
 data class Meal(
     val name: UiText,

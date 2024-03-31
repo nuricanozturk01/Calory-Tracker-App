@@ -10,7 +10,7 @@ interface IOpenFoodApi {
         @Query("search_terms") query: String,
         @Query("page") page: Int,
         @Query("page_size") pageSize: Int
-    ) : SearchDto
+    ): SearchDto
 
     companion object {
         const val BASE_URL = "https://us.openfoodfacts.org/"

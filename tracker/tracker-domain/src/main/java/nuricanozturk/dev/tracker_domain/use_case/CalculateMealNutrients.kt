@@ -1,13 +1,13 @@
 package nuricanozturk.dev.tracker_domain.use_case
 
-import android.content.SharedPreferences
 import nuricanozturk.dev.core.domain.model.ActivityLevel
 import nuricanozturk.dev.core.domain.model.Gender
 import nuricanozturk.dev.core.domain.model.GoalType
 import nuricanozturk.dev.core.domain.model.UserInfo
 import nuricanozturk.dev.core.domain.preferences.IPreferences
-import nuricanozturk.dev.tracker_domain.model.MealType
-import nuricanozturk.dev.tracker_domain.model.TrackedFood
+import nuricanozturk.dev.tracker_data.local.model.MealType
+import nuricanozturk.dev.tracker_data.local.model.TrackedFood
+
 import kotlin.math.roundToInt
 
 class CalculateMealNutrients(private val preferences: IPreferences) {

@@ -1,4 +1,4 @@
-package nuricanozturk.dev.tracker_domain.model
+package nuricanozturk.dev.tracker_data.local.model
 
 sealed class MealType(val name: String) {
     data object Breakfast : MealType("breakfast")

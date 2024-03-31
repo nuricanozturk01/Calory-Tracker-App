@@ -1,6 +1,7 @@
 package nuricanozturk.dev.tracker_presentation.tracker_overview
 
-import nuricanozturk.dev.tracker_domain.model.TrackedFood
+import nuricanozturk.dev.tracker_data.local.model.TrackedFood
+
 
 sealed class TrackerOverviewEvent {
     data object OnNextDayClick : TrackerOverviewEvent()

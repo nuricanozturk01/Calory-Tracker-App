@@ -1,7 +1,7 @@
 package nuricanozturk.dev.tracker_data.mapper
 
+import nuricanozturk.dev.tracker_data.local.model.TrackableFood
 import nuricanozturk.dev.tracker_data.remote.dto.Product
-import nuricanozturk.dev.tracker_domain.model.TrackableFood
 import kotlin.math.roundToInt
 
 fun Product.toTrackableFood(): TrackableFood? {

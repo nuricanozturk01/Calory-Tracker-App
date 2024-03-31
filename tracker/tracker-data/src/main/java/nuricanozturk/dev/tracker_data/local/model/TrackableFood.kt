@@ -1,4 +1,4 @@
-package nuricanozturk.dev.tracker_domain.model
+package nuricanozturk.dev.tracker_data.local.model
 
 data class TrackableFood(
     val name: String,

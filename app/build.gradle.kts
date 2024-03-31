@@ -61,6 +61,7 @@ dependencies {
     implementation(project(path = ":core"))
     implementation(project(":onboarding:onboarding-presentation"))
     implementation(project(":core-ui"))
+    implementation(project(":tracker:tracker-presentation"))
     coreLibraryDesugaring(libs.desugar.jdk.libs)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

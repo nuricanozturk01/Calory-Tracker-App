@@ -39,9 +39,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":tracker:tracker-domain"))
     coreLibraryDesugaring(libs.desugar.jdk.libs)
-
+    implementation(project(":core"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -67,9 +66,9 @@ dependencies {
     implementation(libs.androidx.work.runtime.ktx)
 
     val roomVersion = "2.6.1"
-
     implementation("androidx.room:room-runtime:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
 
 }
 
